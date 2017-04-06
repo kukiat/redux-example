@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import addReducer from './addReducer'
-import deleteReducer from './deleteReducer'
-const rootReducer = combineReducers({
-    tick:addReducer,
-    wd:deleteReducer
+import { combineReducer } from 'redux'
+import tick from './tick'
+
+const rootReducer = combineReducer({
+    tick:tick
 })
+
 export default rootReducer

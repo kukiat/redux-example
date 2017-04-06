@@ -1,14 +1,13 @@
-export const add = (val)=>{
+export const add=()=>{
+    console.log('wdwd')
     return {
-        type: 'ADD',
-        payload:1
+        type:'ADD',
+        val:1
     }
 }
-export const remove = (val)=>{
+export const remove = ()=>{
     return {
-        type :'REMOVE',
-        payload:1
+        type:'REMOVE',
+        val:1
     }
 }
-
-
