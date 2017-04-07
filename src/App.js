@@ -13,7 +13,7 @@ class App extends Component {
       <div>
         
         <button onClick={ ()=>this.props.add(1) }>{ this.props.result }</button>
-        
+        <button onClick={ ()=>this.props.remove(1) }>{ this.props.result }</button>
       </div>
     );
   }
