@@ -1,7 +1,7 @@
-import { combineReducer } from 'redux'
+import { combineReducers  } from 'redux'
 import tick from './tick'
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers ({
     tick:tick
 })
 
