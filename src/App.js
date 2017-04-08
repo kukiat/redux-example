@@ -1,34 +1,43 @@
 import React,{Component} from 'react';
-import { add,remove } from './actions'
-import { bindActionCreators } from 'redux'
+import { addHuman } from './actions'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 class App extends Component {
-  
-  componentWillMount(){
-    console.log('componentWillMount')
+  constructor(){
+    super()
+      this.click = this.click.bind(this)
+  }
+  click(e){
+    e.preventDefault()
+    const text = this.refs.name.value
+    this.props.addHuman(text)
+    this.refs.clear.reset()
   }
   render() {
-    console.log('render')
     return (
       <div>
-        
-        <button onClick={ ()=>this.props.add(1) }>{ this.props.result }</button>
-        <button onClick={ ()=>this.props.remove(1) }>{ this.props.result }</button>
+        <form ref='clear'>
+          <input type="text" ref='name'/>
+          <button onClick={ this.click } >GO</button>
+        </form>
+        { this.props.data }
       </div>
     );
   }
 }
-const mapStatetoProps = (state)=>{
-  console.log('mapStatetoProps')
-  return {
-    result:state.tick
+const mapStateToProps = (state)=>{
+  const data = state.todoReducer.map((data)=>{
+      return(
+        <p>{data.text}</p>
+      )
+    })
+  return{
+    data:data
   }
 }
 const mapDispatchToProps = (dispatch)=>{
-  console.log('mapDispatchToProps')
   return bindActionCreators({
-    add:add,
-    remove:remove
+    addHuman:addHuman
   },dispatch)
 }
-export default connect(mapStatetoProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App)

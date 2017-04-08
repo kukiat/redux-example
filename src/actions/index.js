@@ -1,14 +1,7 @@
-export const add = (x)=>{
-    console.log('add')
-    return {
+export const addHuman = (text)=>{
+    console.log(text)
+    return{
         type:'ADD',
-        val:x
-    }
-}
-
-export const remove = (x)=>{
-    return {
-        type:'REMOVE',
-        val:x
+        payload:text
     }
 }
